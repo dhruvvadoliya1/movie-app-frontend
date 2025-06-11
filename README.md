@@ -29,8 +29,8 @@ Before running this application, make sure you have the following installed:
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd movie-crud/frontend
+git clone https://github.com/dhruvvadoliya1/movie-app-frontend.git
+cd movie-app-frontend
 ```
 
 2. Install dependencies:
@@ -42,13 +42,13 @@ npm install
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd movie-crud/frontend
+git clone https://github.com/dhruvvadoliya1/movie-app-frontend.git
+cd movie-app-frontend
 ```
 
 2. Build the Docker image:
 ```bash
-docker build -t movie-manager-frontend .
+docker build -t movie-app-frontend .
 ```
 
 ## Running the Application
@@ -69,7 +69,7 @@ http://localhost:4200
 
 1. Run the container:
 ```bash
-docker run -d -p 4200:80 --name movie-manager-frontend movie-manager-frontend
+docker run -d -p 4200:80 --name movie-app-frontend movie-app-frontend
 ```
 
 2. Open your browser and navigate to:
@@ -81,27 +81,27 @@ http://localhost:4200
 
 - Build the image:
 ```bash
-docker build -t movie-manager-frontend .
+docker build -t movie-app-frontend .
 ```
 
 - Run the container:
 ```bash
-docker run -d -p 4200:80 --name movie-manager-frontend movie-manager-frontend
+docker run -d -p 4200:80 --name movie-app-frontend movie-app-frontend
 ```
 
 - Stop the container:
 ```bash
-docker stop movie-manager-frontend
+docker stop movie-app-frontend
 ```
 
 - Remove the container:
 ```bash
-docker rm movie-manager-frontend
+docker rm movie-app-frontend
 ```
 
 - View container logs:
 ```bash
-docker logs movie-manager-frontend
+docker logs movie-app-frontend
 ```
 
 - Rebuild and restart (after changes):
