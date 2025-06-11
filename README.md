@@ -1,59 +1,178 @@
-# AngularCrudApp
+# Movie Manager Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.14.
+A full-stack web application for managing movies with features like search, filter, and CRUD operations.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- View list of movies in a responsive grid layout
+- Search movies by title
+- Filter movies by genre and year
+- Add new movies
+- Edit existing movies
+- Delete movies
+- Star rating system
+- Pagination
+- Responsive design
 
+## Prerequisites
+
+Before running this application, make sure you have the following installed:
+
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- Angular CLI (v15 or higher)
+- Docker (optional, for containerized deployment)
+
+## Installation
+
+### Option 1: Local Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd movie-crud/frontend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+### Option 2: Docker Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd movie-crud/frontend
+```
+
+2. Build the Docker image:
+```bash
+docker build -t movie-manager-frontend .
+```
+
+## Running the Application
+
+### Option 1: Local Development
+
+1. Start the development server:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+2. Open your browser and navigate to:
+```
+http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Option 2: Docker Deployment
 
+1. Run the container:
 ```bash
-ng generate --help
+docker run -d -p 4200:80 --name movie-manager-frontend movie-manager-frontend
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
+2. Open your browser and navigate to:
+```
+http://localhost:4200
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Docker Commands Reference
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+- Build the image:
 ```bash
-ng test
+docker build -t movie-manager-frontend .
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+- Run the container:
 ```bash
-ng e2e
+docker run -d -p 4200:80 --name movie-manager-frontend movie-manager-frontend
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Stop the container:
+```bash
+docker stop movie-manager-frontend
+```
 
-## Additional Resources
+- Remove the container:
+```bash
+docker rm movie-manager-frontend
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- View container logs:
+```bash
+docker logs movie-manager-frontend
+```
+
+- Rebuild and restart (after changes):
+```bash
+docker-compose up --build -d
+```
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── movie/
+│   │   ├── create/
+│   │   ├── edit/
+│   │   ├── list/
+│   │   └── show/
+│   └── services/
+├── assets/
+└── environments/
+```
+
+## Technologies Used
+
+- Angular
+- Bootstrap 5
+- Font Awesome
+- TypeScript
+- HTML5
+- CSS3
+- Docker
+
+## Features in Detail
+
+### Movie List View
+- Responsive grid layout with 3 cards per row
+- Search functionality by movie title
+- Filter by genre and year
+- Star rating display
+- Pagination with customizable items per page
+
+### Movie Cards
+- Movie title
+- Genre
+- Year
+- Star rating (supports decimal values)
+- Action buttons (Show, Edit, Delete)
+
+### Search and Filter
+- Real-time search by title
+- Dropdown filters for genre and year
+- Combined search and filter functionality
+
+### Pagination
+- Customizable items per page (5, 10, 20, 50)
+- Page navigation
+- Current page indicator
+- Total items display
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For support, email <your-email> or open an issue in the repository.
