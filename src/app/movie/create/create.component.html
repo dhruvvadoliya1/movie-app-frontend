@@ -1,0 +1,61 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Add New Movie</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="movieForm" (ngSubmit)="handleSave()">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" formControlName="title"
+                                [ngClass]="{ 'is-invalid': f['title'].touched && f['title'].errors }">
+                            <div *ngIf="f['title'].touched && f['title'].errors" class="invalid-feedback">
+                                <div *ngIf="f['title'].errors['required']">Title is required</div>
+                                <div *ngIf="f['title'].errors['minlength']">Title must be at least 2 characters</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="genre" class="form-label">Genre</label>
+                            <input type="text" class="form-control" id="genre" formControlName="genre"
+                                [ngClass]="{ 'is-invalid': f['genre'].touched && f['genre'].errors }">
+                            <div *ngIf="f['genre'].touched && f['genre'].errors" class="invalid-feedback">
+                                <div *ngIf="f['genre'].errors['required']">Genre is required</div>
+                                <div *ngIf="f['genre'].errors['minlength']">Genre must be at least 2 characters</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Year</label>
+                            <input type="number" class="form-control" id="year" formControlName="year"
+                                [ngClass]="{ 'is-invalid': f['year'].touched && f['year'].errors }">
+                            <div *ngIf="f['year'].touched && f['year'].errors" class="invalid-feedback">
+                                <div *ngIf="f['year'].errors['required']">Year is required</div>
+                                <div *ngIf="f['year'].errors['min'] || f['year'].errors['max']">Year must be between 1900 and {{currentYear}}</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Rating</label>
+                            <input type="number" class="form-control" id="rating" formControlName="rating" step="0.1"
+                                [ngClass]="{ 'is-invalid': f['rating'].touched && f['rating'].errors }">
+                            <div *ngIf="f['rating'].touched && f['rating'].errors" class="invalid-feedback">
+                                <div *ngIf="f['rating'].errors['required']">Rating is required</div>
+                                <div *ngIf="f['rating'].errors['min'] || f['rating'].errors['max']">Rating must be between 0 and 5</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-outline-secondary" routerLink="/movie">Back</button>
+                            <button type="submit" class="btn btn-outline-primary" [disabled]="isSaving || movieForm.invalid">
+                                {{ isSaving ? 'Saving...' : 'Add Movie' }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
